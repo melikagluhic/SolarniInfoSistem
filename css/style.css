@@ -1,0 +1,448 @@
+/* ===1. Root Variables=== */
+:root {
+    --primary-color: #f39c12;    /* Energetic Orange */
+    --hover-color: #d88507;      /* Darker shade of Orange */
+    --secondary-color: #333333;  /* Main text color */
+    --bg-light: #f4f4f9;         /* Light background color */
+    --font-family: Arial, sans-serif;
+}
+
+/* ===2. Global Resets & Typography=== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--bg-light);
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--hover-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ===3. Header Style=== */
+.navbar {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky; 
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    height: 60px;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo a:hover {
+    color: var(--hover-color);
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    display: inline-block;
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.nav-toggle {
+    display: none; 
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* Responsive Navbar (Mobile) */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 60px; 
+        right: 0;
+        width: 200px;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.show-nav {
+        display: flex;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        border-radius: 0; /* no rounding in mobile dropdown */
+    }
+}
+
+/* ====4. Hero Section=== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background: url('images/hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===5. Buttons=== */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: var(--hover-color);
+}
+
+.btn-secondary {
+    background-color: #555; /* Dark gray or any secondary color */
+}
+.btn-secondary:hover {
+    background-color: #333;
+}
+
+/* ===6. User Session=== */
+.user-session {
+    padding: 2rem 0;
+}
+
+.auth-links a {
+    margin: 0 10px;
+    color: var(--primary-color);
+}
+
+.cart-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ===7. Forms=== */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form h2 {
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+form input,
+form textarea,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+form input[type="number"] {
+    width: 60px;
+    display: inline-block;
+    margin: 0 10px 15px 0;
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--hover-color);
+}
+
+form a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--primary-color);
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* ===8. Tables=== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+thead th {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* ===9. Success & Error Messages=== */
+p[style="color: red;"] {
+    text-align: center;
+    background: #ffdddd;
+    border: 1px solid #ff5c5c;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+p[style="color: green;"] {
+    text-align: center;
+    background: #ddffdd;
+    border: 1px solid #5cff5c;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* ===10. Product Grid=== */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    background: #fff;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.product-card form {
+    margin-top: 10px;
+}
+
+.product-card input[type="number"] {
+    width: 60px;
+    margin: 5px 0;
+}
+
+.product-card button {
+    padding: 10px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.product-card button:hover {
+    background: var(--hover-color);
+}
+
+/* ===11. Dashboard Stats=== */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.stat {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    width: 30%;
+}
+
+.stat h3 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.stat p {
+    font-size: 24px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ===12. Footer Style== */
+.footer {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.footer-column p,
+.footer-column a {
+    color: #fff;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: var(--hover-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+}
